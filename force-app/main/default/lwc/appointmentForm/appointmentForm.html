@@ -1,3 +1,5 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
 <template>
     <lightning-card title="Appointment Form">
         <lightning-record-edit-form object-api-name="Appointment_Details__c" onsuccess={handleSuccess}>
@@ -6,14 +8,55 @@
                     <lightning-input-field field-name="Subject__c" required></lightning-input-field>
                     <lightning-input-field field-name="Appointment_Time__c" value={appointmentDate} required></lightning-input-field>
                     <lightning-input-field field-name="Description__c" required></lightning-input-field>
-                    <lightning-button label="Check Availability" variant="brand" onclick={handleCheckAvailability}></lightning-button>
-                 
-             
-            <div class="slds-m-top_medium">
-                <lightning-button variant="brand" type="submit" label="Submit"></lightning-button>
-            </div>
+                    <lightning-button variant="brand" label="Check Avaibility" onclick={customShowModalPopup}></lightning-button>
+            
+            
+                    <div class="slds-text-align_center">
+                        <lightning-button variant="brand" type="submit" label="Book Appointment"></lightning-button>
+                     </div>
         </lightning-record-edit-form>
     </lightning-card>
+
+
+    <template if:true={customFormModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal_container">
+                <!-- modal header start -->
+                <header class="slds-modal_header">
+                    <button class="slds-button slds-button_icon slds-modal_close slds-button_icon-invers" title="Close" onclick={customHideMOdalPopup}>
+                        <lightning-icon icon-name="utility:close"
+                        alternative-text="close"
+                        variant="invers"
+                        size="small"></lightning-icon>
+                        <span class="slds-assistive-text">
+                            Close
+                        </span>
+                    </button>
+                    
+                    
+                </header>
+                    <!-- modal body start -->
+
+                    <lightning-card>
+                        <h2>Appointment is avaible</h2>
+                          
+                       
+                    </lightning-card>
+                    <footer class="slds-modal_footer">
+                        <button class="slds-button slds-button--destructive" onclick={customHideModalPopup}>Cancel</button>
+
+                    </footer>
+
+
+
+
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open">
+            
+        </div>
+    </template>
+    
 </template>
 
 

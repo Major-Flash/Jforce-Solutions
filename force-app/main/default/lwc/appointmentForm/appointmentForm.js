@@ -6,6 +6,7 @@ export default class AppointmentForm extends LightningElement {
 
     @track error;
     @track appointmentDate;
+    @track customFormModal = false;
 
      handleSuccess()
     {
@@ -18,10 +19,12 @@ export default class AppointmentForm extends LightningElement {
         this.dispatchEvent(evt);
     }
 
-    
-    handleCheckAvailability() {
+    customShowModalPopup(){
+        this.customFormModal=true;
 
-        //isActive = true then it should throw msg
+    }
+    customHideModalPopup(){
+        this.customFormModal=false;
     }
 
 }

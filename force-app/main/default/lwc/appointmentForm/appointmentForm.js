@@ -10,7 +10,7 @@ export default class AppointmentForm extends LightningElement {
      handleSuccess()
     {
         const evt=new ShowToastEvent({
-            title: 'Toast Success Message',
+            title: 'Appointment Added Successfully',
             message: 'Appointment Submited',
             variant: 'success',
             mode: 'dismissable'
@@ -21,7 +21,7 @@ export default class AppointmentForm extends LightningElement {
     
     handleCheckAvailability() {
 
-        //isActive = true then it should throw msg as 
+        //isActive = true then it should throw msg
     }
 
 }

@@ -2,13 +2,13 @@
 <!-- sldsValidatorIgnore -->
 <template>
     <lightning-card title="Appointment Form">
-        <lightning-record-edit-form object-api-name="Appointment_Details__c" onsuccess={handleSuccess}>
+        <lightning-record-edit-form object-api-name="Appointment_Details__c" onsuccess={handleSuccess} onerror={handleClick}>
            
                     <lightning-input-field field-name="Contact__c" required></lightning-input-field>
                     <lightning-input-field field-name="Subject__c" required></lightning-input-field>
-                    <lightning-input-field field-name="Appointment_Time__c" value={appointmentDate} required></lightning-input-field>
+                    <lightning-input-field field-name="Appointment_Time__c" required></lightning-input-field>
                     <lightning-input-field field-name="Description__c" required></lightning-input-field>
-                    <lightning-button variant="brand" label="Check Avaibility" onclick={customShowModalPopup}></lightning-button>
+                    <lightning-button variant="brand" label="Check Avaibility" ></lightning-button>
             
             
                     <div class="slds-text-align_center">
